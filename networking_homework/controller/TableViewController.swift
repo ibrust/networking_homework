@@ -15,18 +15,23 @@ class TableViewController: UITableViewController {
     /*
     override init(style: UITableView.Style){
         super.init(style: style)
+        setup()
     }
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
-    }*/
+        setup()
+    }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.allowsSelection = false
         request_download_list(url: image_list_url)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableview_cell_id", for: indexPath) as? TableViewCell
+        cell?.selectionStyle = .none
         
         if let received_id = received_ids[indexPath.row] {
             cell?.cell_label_outlet.text = "ID: " + received_id
@@ -38,7 +43,6 @@ class TableViewController: UITableViewController {
         return cell ?? UITableViewCell()
     }
     
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -49,19 +53,29 @@ class TableViewController: UITableViewController {
     func request_download_list(url: String){
         NetworkManager.shared.fetch_json_download_list(url) { [weak self] in ()
             guard let self = self else {return}
-            // this loop repeatedly makes requests for individual images
             for index in 0..<page_size{
-                let download_url = parsed_image_links[index].download_url
-                NetworkManager.shared.fetch_image(download_url) { [weak self] (image, id) in
-                    guard let self = self else {return}
-                    DispatchQueue.main.async {
-                        received_images[index] = image
-                        self.tableView.reloadData()
-                    }
-                }
+                self.request_single_image(index: index)
             }
         }
     }
+    
+    func request_single_image(index: Int){
+        let download_url = parsed_image_links[index].download_url
+
+        NetworkManager.shared.fetch_image(download_url) { [weak self] (image, id) in
+            guard let self = self else {return}
+            DispatchQueue.main.async {
+                received_images[index] = image
+                let index_path = IndexPath(row: index, section: 0)
+                let row_to_reload: [IndexPath] = [index_path]
+                self.tableView.reloadRows(at: row_to_reload, with: UITableView.RowAnimation.none)
+            }
+        }
+    }
+    /*
+    private func setup(){
+        
+    }*/
 
     private func set_image_list_url(page: Int, results_per_page: Int) -> String {
         return "https://picsum.photos/v2/list?page=\(page)&limit=\(results_per_page)"
