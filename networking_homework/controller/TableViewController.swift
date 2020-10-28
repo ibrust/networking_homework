@@ -8,20 +8,8 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    
 
     var image_list_url: String = "https://picsum.photos/v2/list?page=\(starting_page)&limit=\(page_size)"
-    
-    /*
-    override init(style: UITableView.Style){
-        super.init(style: style)
-        setup()
-    }
-    required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder)
-        setup()
-    }
-    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,10 +60,6 @@ class TableViewController: UITableViewController {
             }
         }
     }
-    /*
-    private func setup(){
-        
-    }*/
 
     private func set_image_list_url(page: Int, results_per_page: Int) -> String {
         return "https://picsum.photos/v2/list?page=\(page)&limit=\(results_per_page)"
