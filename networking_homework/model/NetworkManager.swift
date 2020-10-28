@@ -8,7 +8,6 @@
 import UIKit
 
 
-
 public final class NetworkManager{
     static var shared = NetworkManager()
     var session: URLSession
@@ -37,8 +36,8 @@ public final class NetworkManager{
     func fetch_image(_ url: String, completion: @escaping (UIImage?, String?) -> () ){
         guard let url_obj = URL(string:url) else{return}
         session.dataTask(with: url_obj){ (data, response, error) in
-            if let _ = error{return}
-            guard let data = data else{return}
+            if let _ = error{print("ERROR");return}
+            guard let data = data else{print("ERROR");return}
             var id: String?
             
             if let result = response as? HTTPURLResponse {
