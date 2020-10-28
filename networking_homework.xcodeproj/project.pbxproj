@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		3AD364C12548CE0300CCADB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD364C02548CE0300CCADB8 /* AppDelegate.swift */; };
 		3AD364C32548CE0300CCADB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD364C22548CE0300CCADB8 /* SceneDelegate.swift */; };
-		3AD364C52548CE0300CCADB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD364C42548CE0300CCADB8 /* ViewController.swift */; };
 		3AD364C82548CE0300CCADB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD364C62548CE0300CCADB8 /* Main.storyboard */; };
 		3AD364CB2548CE0300CCADB8 /* networking_homework.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AD364C92548CE0300CCADB8 /* networking_homework.xcdatamodeld */; };
 		3AD364CD2548CE0500CCADB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD364CC2548CE0500CCADB8 /* Assets.xcassets */; };
 		3AD364D02548CE0500CCADB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD364CE2548CE0500CCADB8 /* LaunchScreen.storyboard */; };
+		3AD364DE2548D3BE00CCADB8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD364DD2548D3BE00CCADB8 /* TableViewController.swift */; };
+		3AD364E12548D5A900CCADB8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD364E02548D5A900CCADB8 /* TableViewCell.swift */; };
+		3AD364E42548E3F700CCADB8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD364E32548E3F700CCADB8 /* NetworkManager.swift */; };
+		3AD364E72548FC5A00CCADB8 /* json_download_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD364E62548FC5A00CCADB8 /* json_download_list.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3AD364BD2548CE0300CCADB8 /* networking_homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = networking_homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD364C02548CE0300CCADB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD364C22548CE0300CCADB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3AD364C42548CE0300CCADB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3AD364C72548CE0300CCADB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AD364CA2548CE0300CCADB8 /* networking_homework.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = networking_homework.xcdatamodel; sourceTree = "<group>"; };
 		3AD364CC2548CE0500CCADB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AD364CF2548CE0500CCADB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AD364D12548CE0500CCADB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AD364DD2548D3BE00CCADB8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		3AD364E02548D5A900CCADB8 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		3AD364E32548E3F700CCADB8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3AD364E62548FC5A00CCADB8 /* json_download_list.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = json_download_list.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +64,51 @@
 		3AD364BF2548CE0300CCADB8 /* networking_homework */ = {
 			isa = PBXGroup;
 			children = (
+				3AD364DB2548CE4800CCADB8 /* utilities */,
+				3AD364DA2548CE3500CCADB8 /* controller */,
+				3AD364D92548CE2F00CCADB8 /* view */,
+				3AD364D82548CE2800CCADB8 /* model */,
+				3AD364CC2548CE0500CCADB8 /* Assets.xcassets */,
+			);
+			path = networking_homework;
+			sourceTree = "<group>";
+		};
+		3AD364D82548CE2800CCADB8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				3AD364E32548E3F700CCADB8 /* NetworkManager.swift */,
+				3AD364E62548FC5A00CCADB8 /* json_download_list.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		3AD364D92548CE2F00CCADB8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				3AD364CE2548CE0500CCADB8 /* LaunchScreen.storyboard */,
+				3AD364C62548CE0300CCADB8 /* Main.storyboard */,
+				3AD364E02548D5A900CCADB8 /* TableViewCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		3AD364DA2548CE3500CCADB8 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				3AD364DD2548D3BE00CCADB8 /* TableViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		3AD364DB2548CE4800CCADB8 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
 				3AD364C02548CE0300CCADB8 /* AppDelegate.swift */,
 				3AD364C22548CE0300CCADB8 /* SceneDelegate.swift */,
-				3AD364C42548CE0300CCADB8 /* ViewController.swift */,
-				3AD364C62548CE0300CCADB8 /* Main.storyboard */,
-				3AD364CC2548CE0500CCADB8 /* Assets.xcassets */,
-				3AD364CE2548CE0500CCADB8 /* LaunchScreen.storyboard */,
 				3AD364D12548CE0500CCADB8 /* Info.plist */,
 				3AD364C92548CE0300CCADB8 /* networking_homework.xcdatamodeld */,
 			);
-			path = networking_homework;
+			path = utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +181,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AD364C52548CE0300CCADB8 /* ViewController.swift in Sources */,
+				3AD364E42548E3F700CCADB8 /* NetworkManager.swift in Sources */,
+				3AD364E12548D5A900CCADB8 /* TableViewCell.swift in Sources */,
 				3AD364C12548CE0300CCADB8 /* AppDelegate.swift in Sources */,
 				3AD364CB2548CE0300CCADB8 /* networking_homework.xcdatamodeld in Sources */,
+				3AD364E72548FC5A00CCADB8 /* json_download_list.swift in Sources */,
 				3AD364C32548CE0300CCADB8 /* SceneDelegate.swift in Sources */,
+				3AD364DE2548D3BE00CCADB8 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +335,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = networking_homework/Info.plist;
+				INFOPLIST_FILE = networking_homework/utilities/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = networking_homework/Info.plist;
+				INFOPLIST_FILE = networking_homework/utilities/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
