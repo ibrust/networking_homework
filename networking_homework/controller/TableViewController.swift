@@ -23,20 +23,12 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableview_cell_id", for: indexPath) as? TableViewCell
         cell?.selectionStyle = .none
         
-        // looks like cells aren't being given unique rows or something...?
-        // this isnt working... you don't know that the first to receive teh image is the correct one... do you?
         if let received_id = received_ids[indexPath.row] {
-            //if cell?.id_loaded == false{
-                cell?.cell_label_outlet.text = "ID: " + received_id
-                cell?.id_loaded = true
-            //}
+            cell?.cell_label_outlet.text = "ID: " + received_id
         }
         if let received_image = received_images[indexPath.row] {
-            //if cell?.image_loaded == false{
-                print("recieved image at: ", indexPath.row)
-                cell?.cell_image_outlet.image = received_image
-                cell?.image_loaded = true
-            //}
+            print("in cellforrowat, indexpath.row: ", indexPath.row)
+            cell?.cell_image_outlet.image = received_image
         }
 
         return cell ?? UITableViewCell()
@@ -70,15 +62,7 @@ class TableViewController: UITableViewController {
                 print("in the completion: ", index)
                 let index_path = IndexPath(row: index, section: 0)
                 let row_to_reload: [IndexPath] = [index_path]
-                //self.tableView.reloadRows(at: row_to_reload, with: UITableView.RowAnimation.none)
-                
-                // maybe construct an array of all cells that have been used?
-                // and refresh those in reloadRows()?
-                // you could even get more advanced and use a dictionary...
-                // every cell that uses that id stores a unique id in the dictionary...
-                
-                
-                self.tableView.reloadData()
+                self.tableView.reloadRows(at: row_to_reload, with: .none)
             }
         }
     }
